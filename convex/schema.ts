@@ -15,6 +15,11 @@ const schema = defineSchema({
     // other "users" fields...
   }).index("email", ["email"]),
   // Your other tables...
+  workspaces: defineTable({
+    name: v.string(),
+    userId: v.id("users"),
+    joinCode: v.string(),
+  }),
 });
  
 export default schema;
