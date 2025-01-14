@@ -12,9 +12,9 @@ export const UserButton = () => {
     const router = useRouter();
     const { data, isLoading } = useCurrentUser();
 
-    const handleSignOut = () => {
-        signOut();
-        router.replace("/auth");
+    const handleSignOut = async () => {
+        await signOut();
+        window.location.href = '/auth'
     }
 
     if (isLoading){
