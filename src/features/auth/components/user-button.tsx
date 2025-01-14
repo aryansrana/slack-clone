@@ -5,10 +5,18 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { useCurrentUser } from "../api/use-current-user";
 import { Loader, LogOut } from "lucide-react";
 import { useAuthActions } from "@convex-dev/auth/react";
+import { useRouter } from "next/navigation";
 
 export const UserButton = () => {
     const { signOut } = useAuthActions();
+    const router = useRouter();
     const { data, isLoading } = useCurrentUser();
+
+    const handleSignOut = () => {
+        signOut();
+        router.replace("/auth");
+    }
+
     if (isLoading){
         return <Loader className="size-4 animated-spin text-muted-foreground"/>
     }
@@ -29,7 +37,7 @@ export const UserButton = () => {
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" side="right" className="w-60">
-                <DropdownMenuItem onClick={() => signOut()} className="h-10 flex items-center">
+                <DropdownMenuItem onClick={() => {handleSignOut()}} className="h-10 flex items-center">
                     <LogOut className="size-4 mr-2"/>
                     Log out
                 </DropdownMenuItem>
