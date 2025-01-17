@@ -25,7 +25,7 @@ export const WorkspaceHeader = ({workspace, isAdmin}: WorkspaceHeaderProps) => {
                     <DropdownMenuTrigger asChild>
                         <Button variant="transparent" className="font-semibold text-lg w-auto p-1.5 overflow-hidden" size="sm">
                             <span className="truncate ">{workspace.name}</span>
-                            <ChevronDown className="dize-4 ml-1 shrink-0"/>
+                            <ChevronDown className="size-4 ml-1 shrink-0"/>
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent side="bottom" align="start" className="w-64">
