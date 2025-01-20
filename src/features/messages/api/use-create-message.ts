@@ -7,9 +7,9 @@ type RequestType = {
     body:string, 
     image?: Id<"_storage">, 
     workspaceId: Id<"workspaces">, 
-    channelId?: Id<"channels">, 
+    channelId?: Id<"channels">,
+    conversationId?: Id<"conversations">,
     parentMessageId?: Id<"messages">, 
-    // TODO: add conversationId
 };
 type ResponseType = Id<"messages"> | null;
 
@@ -69,6 +69,5 @@ export const useCreateMessage = () => {
         isSuccess,
         isError,
         isSettled,
-
     };
 }
