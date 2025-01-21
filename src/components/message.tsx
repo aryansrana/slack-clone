@@ -7,6 +7,7 @@ import isYesterday from "dayjs/plugin/isYesterday";
 import { Hint } from "./hint";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { Thumbnail } from "./thumbnail";
+import { Toolbar } from "./toolbar";
 
 dayjs.extend(isToday);
 dayjs.extend(isYesterday);
@@ -109,9 +110,20 @@ export const Message = ({
                     <Renderer value={body} />
                     <Thumbnail url={image} />
                     {updatedAt ? (<span className="text-xs text-muted-foreground">(edited)</span>) : null}
-                </div>
-                
-            </div>     
+                </div> 
+            </div>
+            {!isEditing && (
+                <Toolbar
+                    isAuthor={isAuthor}
+                    isPending={false}
+                    handleEdit={() => setEditingId(id)}
+                    handleThread={() => {}}
+                    handleDelete={() => {}}
+                    handleReaction={() => {}}
+                    hideThreadButton={hideThreadButton}
+                    
+                />
+            )}     
         </div>
     );
     
