@@ -6,7 +6,7 @@ export const current = query({
     args: {},
     handler: async (ctx) => {
         const userId = await getAuthUserId(ctx);
-        if (userId === null) {
+        if (!userId) {
           //throw new Error("Client is not authenticated!")
           return null;
         }
