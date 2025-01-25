@@ -5,11 +5,9 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { useCurrentUser } from "../api/use-current-user";
 import { Loader, LogOut } from "lucide-react";
 import { useAuthActions } from "@convex-dev/auth/react";
-import { useRouter } from "next/navigation";
 
 export const UserButton = () => {
     const { signOut } = useAuthActions();
-    const router = useRouter();
     const { data, isLoading } = useCurrentUser();
 
     const handleSignOut = async () => {

@@ -28,8 +28,8 @@ export const Profile = ({memberId, onClose} : ProfileProps) => {
     const [UpdateDialog, confirmUpdate] = useConfirm("Change role", "Are you sure you want to change this member's role?");
     const {data: member, isLoading: isLoadingMember } = useGetMember({id: memberId});
     const { data: currentMember, isLoading: isLoadingCurrentMember } = useCurrentMember({workspaceId});
-    const {mutate: updateMember, isPending: isUpdatingMember} = useUpdateMember();
-    const {mutate: removeMember, isPending: isRemovingMember} = useRemoveMember();
+    const {mutate: updateMember} = useUpdateMember();
+    const {mutate: removeMember} = useRemoveMember();
 
     const onRemove = async () => {
         const ok = await confirmRemove();

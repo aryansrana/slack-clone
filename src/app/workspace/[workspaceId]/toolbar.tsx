@@ -4,14 +4,12 @@ import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { Info, Search } from "lucide-react";
 import {
-    Command,
     CommandDialog,
     CommandInput,
     CommandList,
     CommandEmpty,
     CommandGroup,
     CommandItem,
-    CommandShortcut,
     CommandSeparator,
   } from "@/components/ui/command"
 import { useState } from "react";
@@ -25,8 +23,8 @@ export const Toolbar = () => {
     const router = useRouter();
     const workspaceId = useWorkspaceId();
     const { data } = useGetWorkspace({id: workspaceId});
-    const {data: channels, isLoading: channelsLoading} = useGetChannels({workspaceId});
-    const {data: members, isLoading: membersLoading} = useGetMembers({workspaceId});
+    const {data: channels} = useGetChannels({workspaceId});
+    const {data: members} = useGetMembers({workspaceId});
     const [open, setOpen] = useState(false);
 
     const handleChannelClick = (channelId: Id<"channels">) => {

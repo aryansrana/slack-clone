@@ -27,7 +27,7 @@ export const Header = ({title} : HeaderProps) => {
     const {mutate: updateChannel, isPending: isUpdatingChannel} = useUpdateChannel();
     const {mutate: removeChannel, isPending: isRemovingChannel} = useRemoveChannel();
 
-    const handleEditOpen = (value: boolean) => {
+    const handleEditOpen = () => {
         if(member?.role !== "admin") return;
         setEditOpen(true);
     };
