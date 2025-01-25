@@ -60,7 +60,6 @@ export const Thread = ({ messageId, onClose } : ThreadProps) => {
     const formatDateLabel = (dateStr: string) => {
         const date = new Date(dateStr);
         const date2 = dayjs(dateStr, "YYYY-MM-DD");
-        console.log(date);
         if(date2.isToday()) { return "Today" };
         if(date2.isYesterday()) { return "Yesterday" };
         return format (date, "EEEE, MMMM d"); // TODO : may display incorrect date
